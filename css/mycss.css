@@ -13,3 +13,10 @@
 	color: #FFFFFF;
 	border-color: #00be0d;
 }
+
+body {
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center
+}
