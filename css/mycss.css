@@ -1,0 +1,15 @@
+.search_input {
+	font-size: 22px; 
+	border: 0;
+}
+
+.search_nav {
+	position: fixed; 
+	margin: 0;
+}
+
+.green_white {
+	background-color: #00be0d;
+	color: #FFFFFF;
+	border-color: #00be0d;
+}
