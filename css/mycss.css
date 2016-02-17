@@ -12,6 +12,7 @@
 	background-color: #00be0d;
 	color: #FFFFFF;
 	border-color: #00be0d;
+	border-radius: 0px;
 }
 
 body {
@@ -19,4 +20,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center
+}
+
+.shadow {
+  box-shadow:0 2px 6px rgba(0,0,0,0.5);
 }
