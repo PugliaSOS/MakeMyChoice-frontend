@@ -30,6 +30,8 @@ input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#pla
 	font-size: 14px; 
 	border: 0;
 	margin-left: 33px;
+	padding: 0;
+	height: 35px;
 }
 
 .search_nav {
