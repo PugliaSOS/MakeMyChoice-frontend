@@ -1,3 +1,9 @@
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active {
+  color: white;
+}
+
 * {
 	font-family: 'Roboto', 
 	sans-serif;
