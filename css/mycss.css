@@ -1,12 +1,25 @@
+
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
 .btn-custom:hover,
 .btn-custom:focus,
 .btn-custom:active {
   color: white;
 }
 
-* {
-	font-family: 'Roboto', 
-	sans-serif;
+.title {
+  background-color: transparent;
+  border: 0;
+  outline: none; 
+  margin: 0;
+  padding: 0;
+}
+
+.title h1 {
+  font-size:14px;
+  margin: 10px 0px 10px 13px; 
 }
 
 input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#placeholder) */
@@ -14,8 +27,9 @@ input:placeholder-shown { /* Standard (https://drafts.csswg.org/selectors-4/#pla
 }
 
 .search_input {
-	font-size: 22px; 
+	font-size: 14px; 
 	border: 0;
+	margin-left: 33px;
 }
 
 .search_nav {
@@ -42,7 +56,3 @@ body {
  	box-shadow:0 2px 6px rgba(0,0,0,0.5);
 }
 
-.title {
-	font-size: 14px;
-	margin: 10px 0px 10px 13px;
-}
