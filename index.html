@@ -1,46 +1,37 @@
 <!DOCTYPE html>
-<html lang="it">
-  <head>
-    <title>MakeMychoice</title>
-    <meta charset="utf-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=no">    
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <script rtype="text/javascript" src="bower_components/bootstrap/dist/css/bootstrap.css"></script>
-  </head>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  <title>MakeMyChoice</title>
 
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="navbar-header navbar-right">
-          <a class="navbar-brand" href="#">MakeMyChoice</a>
-      </div>
-    </nav>
-
-    <div class="page-header">
-      <div class="row">
-        <div class="col-xs-6 col-xs-offset-3">
-          <form class="form-search">
-            <input type="text" class="form-controll" placeholder="Search...">
-          </form>
-        </div>
-      </div>
+  <!-- Bootstrap -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/mycss.css">
+</head>
+<body>
+  <div class='search-nav shadow'>
+    <div class="input-group">
+      <input type="text" class="form-control search_input green_white" 
+             placeholder="Search..." value="MakeMyChoice">
+      <span class="input-group-btn">
+        <button class="btn green_white" type="button" >
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </span>
     </div>
+  </div>
 
-    <div class="container">
-      <h2 align="center">Categorie</h2>
-      <div class="row">
-        <div class="col-xs-4">
-            <p><button type="button" class="btn btn-success">Computer</button></p>
-        </div>
-        <div class="col-xs-4-offset-2">
-            <p><button type="button" class="btn btn-success">Cellulari</button></p>
-        </div>
-        <div class="col-xs-4">
-            <p><button type="button" class="btn btn-success">Laptop</button></p>
-        </div>
-        <div class="col-xs-4-offset-2">
-            <p><button type="button" class="btn btn-success">Schede Video</button></p>
-        </div>
-      </div>
-     </div>
-  </body>
+  <div class='container-fluid'>
+    <h3> Prova opacità </h3>
+    <p> Prova </p>
+  </div>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/myjs.js"></script>
+</body>
 </html>
