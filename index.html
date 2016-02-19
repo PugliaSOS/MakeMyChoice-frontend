@@ -14,22 +14,18 @@
 </head>
 <body>
   <div class="search-nav green_white shadow">
-    <div class="input-group">
-      <h1 class="title"> MakeMyChoice </h1>
+    <h1 class="title"> MakeMyChoice </h1>
+    <div class="search_bar hidden">
       <input type="text" 
-             class="form-control hidden search_input green_white" 
-             placeholder="Search..."
-      >
-      <span class="input-group-btn search">
-        <button class="btn green_white btn-custom" type="button" >
-          <span class="glyphicon glyphicon-search"></span>
-        </button>
-      </span>
+             class="form-control search_input green_white" 
+             placeholder="Search...">
     </div>
+    <button class="search btn green_white btn-custom pull-right" type="button" >
+      <span class="glyphicon glyphicon-search"></span>
+    </button>
   </div>
-
-  <div class='container-fluid'>
-    <h1> page(it should be 100% higher!) </h1>
+  
+  <div class='overlay'>
   </div>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
