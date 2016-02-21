@@ -9,6 +9,6 @@ $( document ).ready(function() {
   $(".search").click(function() {
 	$(".title").addClass("hidden");
   	$(".search_bar").removeClass("hidden");
-  	$(".overlay").css("background-color", "rgba(125, 125, 125, .5)");
+  	$(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
   });
 });
