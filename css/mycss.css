@@ -78,3 +78,14 @@ body {
   height: 100%;
   width: 100%;
 }
+
+ul {
+  list-style-type: none;
+  background-color: white;
+}
+li {
+  border-bottom-width: 1px;
+  border-bottom-style: groove;
+  border-bottom-color: #b3b3b3;
+  list-style-position:outside;
+}
