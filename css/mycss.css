@@ -80,12 +80,15 @@ body {
 }
 
 ul {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background-color: #FFFFFF;
   list-style-type: none;
-  background-color: white;
 }
-li {
+
+li{
   border-bottom-width: 1px;
-  border-bottom-style: groove;
-  border-bottom-color: #b3b3b3;
-  list-style-position:outside;
+  border-bottom-style: solid;
+  border-bottom-color: #b3b3b3;  
 }

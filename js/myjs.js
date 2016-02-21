@@ -1,9 +1,9 @@
 $( document ).ready(function() {
 
   $(".search_input").autocomplete({ 
+    appendTo: "overlay",
     source: ['Tv','Cellulari','Computer','Tablet','TV','T-Shirt'],
     minLength:1,
-    position: { of :"#search_bar" }
   }); 
  
   $(".search").click(function() {
