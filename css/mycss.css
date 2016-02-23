@@ -62,10 +62,10 @@
 body {
 	overflow-y: hidden;
 	background-color: #f2f2f2;
-  	background-image: url("../img/logo.png");
-  	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-position: center
+  background-image: url("../img/logo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center
 }
 
 .shadow {
@@ -79,15 +79,14 @@ body {
   width: 100%;
 }
 
-ul {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  background-color: #FFFFFF;
+ul.ui-autocomplete.ui-menu li{
+  margin-left: -73px;
+  padding-left: 33px;
+  background-color: white;
   list-style-type: none;
 }
 
-li{
+li {
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #b3b3b3;  
