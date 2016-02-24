@@ -65,7 +65,7 @@ body {
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center
+  background-position: center;
 }
 
 .shadow {
@@ -87,6 +87,12 @@ ul.ui-autocomplete.ui-menu li{
 }
 
 li {
+  height: 35px;
+  padding-top: 7px;
+  padding-bottom: 11px;
+  padding-left: 33px;
+  font-size: 14px;
+  color: #333333;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   border-bottom-color: #b3b3b3;  
