@@ -97,3 +97,16 @@ li {
   border-bottom-style: solid;
   border-bottom-color: #b3b3b3;  
 }
+
+ul.ui-autocomplete.ui-menu {
+  margin-bottom: 0px;
+}
+
+ul.ui-autocomplete.ui-menu.autocomplete-new li {
+  margin-left: -40px;
+}
+
+.icon-plus {
+  position: absolute;
+  left: 14px;
+}
