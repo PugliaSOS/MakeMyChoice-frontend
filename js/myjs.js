@@ -16,6 +16,8 @@ $( document ).ready(function() {
   $(".search").click(function() {
 	  $(".title").addClass("hidden");
   	$(".search_bar").removeClass("hidden");
+    $(".search_input").attr("id", "search_input");
+    $("#search_input").focus();
   	$(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
   });
 
