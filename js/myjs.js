@@ -9,6 +9,7 @@ $( document ).ready(function() {
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
     var str = $(".search_input").val();
+    $(".ui-helper-hidden-accessible").addClass("hidden");
     $("#ui-id-1").removeClass("hidden");
     var items = $("#ui-id-1 li");
     var listItems = [];
