@@ -117,3 +117,9 @@ ul.ui-autocomplete.ui-menu.autocomplete-new li {
     display: inline-block;
     fill: currentColor;
 }
+
+.search_button {
+  padding: 0px;
+  border: 0px;
+  height: 34px;
+}
