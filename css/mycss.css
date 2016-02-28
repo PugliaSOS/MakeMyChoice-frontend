@@ -110,3 +110,10 @@ ul.ui-autocomplete.ui-menu.autocomplete-new li {
   position: absolute;
   left: 14px;
 }
+
+[class^="icon-"], [class*=" icon-"] {
+    height: 32px;
+    width: 32px;
+    display: inline-block;
+    fill: currentColor;
+}

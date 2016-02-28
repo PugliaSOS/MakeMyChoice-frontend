@@ -8,6 +8,7 @@ $( document ).ready(function() {
 
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
+<<<<<<< Updated upstream
     var str = $(".search_input").val();
     $(".ui-helper-hidden-accessible").addClass("hidden");
     $("#ui-id-1").removeClass("hidden");
@@ -22,6 +23,10 @@ $( document ).ready(function() {
     } else {
         $("#ui-id-1").addClass("hidden");
     }
+=======
+    var str = $( ".search_input" ).val();
+    $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><span class='icon-plus'>+</span>"+str+"</li></ul>");
+>>>>>>> Stashed changes
   });
   
   $(".search").click(function() {
