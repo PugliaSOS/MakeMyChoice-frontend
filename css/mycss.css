@@ -106,9 +106,12 @@ ul.ui-autocomplete.ui-menu.autocomplete-new li {
   margin-left: -40px;
 }
 
-.icon-plus {
-  position: absolute;
-  left: 14px;
+svg.icon-ic-add-black-36px {
+  position: relative;
+  left: -14px;
+  top: 5px;
+  height: 19px;
+  width: 11px;
 }
 
 [class^="icon-"], [class*=" icon-"] {
