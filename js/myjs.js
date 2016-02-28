@@ -8,25 +8,21 @@ $( document ).ready(function() {
 
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
-<<<<<<< Updated upstream
     var str = $(".search_input").val();
     $(".ui-helper-hidden-accessible").addClass("hidden");
-    $("#ui-id-1").removeClass("hidden");
     var items = $("#ui-id-1 li");
     var listItems = [];
     items.text(function(index, name) {
-      listItems[name] = name;
+      listItems[name.toLowerCase()] = name.toLowerCase();
     });
     strHasBeenInitialized = (str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z');
-    if(strHasBeenInitialized && listItems[str] == undefined) {
+    if(strHasBeenInitialized && listItems[str.toLowerCase()] == undefined) {
         $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><span class='icon-plus'>+</span>"+str+"</li></ul>");
-    } else {
-        $("#ui-id-1").addClass("hidden");
     }
-=======
-    var str = $( ".search_input" ).val();
-    $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><span class='icon-plus'>+</span>"+str+"</li></ul>");
->>>>>>> Stashed changes
+  });
+  
+  $("#ui-id-1").click(function(){
+    $(".autocomplete-new").addClass("hidden");
   });
   
   $(".search").click(function() {
