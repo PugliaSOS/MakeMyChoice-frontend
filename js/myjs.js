@@ -2,15 +2,25 @@ $( document ).ready(function() {
 
   $(".search_input").autocomplete({ 
     appendTo: ".overlay",
-    source: ['Tv','Cellulari','Computer','Tablet','TV','T-Shirt'],
+    source: ['Tv','Cellulari','Computer','Tablet','T-Shirt'],
     minLength:1,
   }); 
 
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
-    var str = $( ".search_input" ).val();
-    $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><span class='icon-plus'>+</span>"+str+"</li></ul>");
-
+    var str = $(".search_input").val();
+    $("#ui-id-1").removeClass("hidden");
+    var items = $("#ui-id-1 li");
+    var listItems = [];
+    items.text(function(index, name) {
+      listItems[name] = name;
+    });
+    strHasBeenInitialized = (str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z');
+    if(strHasBeenInitialized && listItems[str] == undefined) {
+        $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><span class='icon-plus'>+</span>"+str+"</li></ul>");
+    } else {
+        $("#ui-id-1").addClass("hidden");
+    }
   });
   
   $(".search").click(function() {
