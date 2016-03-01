@@ -1,0 +1,23 @@
+{
+  "name": "makemychoice-frontend",
+  "version": "1.0.0",
+  "description": "Frontend MakeMyChoice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PugliaSOS/MakeMyChoice-frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PugliaSOS/MakeMyChoice-frontend/issues"
+  },
+  "homepage": "https://github.com/PugliaSOS/MakeMyChoice-frontend#readme",
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
