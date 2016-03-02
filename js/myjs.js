@@ -17,7 +17,7 @@ $( document ).ready(function() {
     });
     strHasBeenInitialized = (str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z');
     if(strHasBeenInitialized && listItems[str.toLowerCase()] == undefined) {
-        $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li><svg class='icon-ic-add-black-36px'><use xlink:href='./img/icons.svg#icon-ic-add-black-36px'></use></svg>"+str+"</li></ul>");
+        $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li class='ui-menu-item'><svg class='icon-ic-add-black-36px'><use xlink:href='./img/icons.svg#icon-ic-add-black-36px'></use></svg>"+str+"</li></ul>");
     }
   });
   

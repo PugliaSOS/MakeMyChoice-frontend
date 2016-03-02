@@ -107,16 +107,20 @@ ul.ui-autocomplete.ui-menu.autocomplete-new li {
 }
 
 svg.icon-ic-add-black-36px {
-  position: relative;
-  left: -14px;
-  top: 5px;
-  height: 19px;
-  width: 11px;
+    position: relative;
+    left: -6px;
+    top: 3px;
+    height: 19px;
+    width: 15px;
+    padding: 0px;
+    margin-left: -16px;
+    margin-bottom: -2px;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"], [class*="icon-"] {
     height: 32px;
     width: 32px;
+    padding: 7px;
     display: inline-block;
     fill: currentColor;
 }
