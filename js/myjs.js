@@ -1,10 +1,40 @@
 $( document ).ready(function() {
+  
+  $.ajax({
+    method: "GET",
+    url: "http://localhost:8001/categories",
+    dataType: "json"
+  })
+  .done(function( msg ) {
+    $(".search_input").autocomplete({ 
+      appendTo: ".autocomplete-section",
+      source: msg,
+      select: function( event, ui ) {
+        $(".autocomplete-new").remove();
+        $(".search_input").val(ui.item.value);
+        $(".search_input").removeAttr("autofocus");
+        $(".overlay").css("background-color", $("body").css("background-color"));
+        $(".products-container").html("");
+        printProducts(ui.item.value);
+        return false;
+      },
+      minLength:1
+    }); 
+  });
 
-  $(".search_input").autocomplete({ 
-    appendTo: ".overlay",
-    source: ['Tv','Cellulari','Computer','Tablet','T-Shirt'],
-    minLength:1,
-  }); 
+  function printProducts(category) {
+      $.ajax({
+        method: "GET",
+        url: "http://localhost:8001/categories/" + category + "/products",
+        dataType: "json"
+      })
+      .done(function( msg ) {
+        console.log(msg);
+        //$(".products-container").append(msg);
+      });
+  }
+
+  
 
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
@@ -15,9 +45,20 @@ $( document ).ready(function() {
     items.text(function(index, name) {
       listItems[name.toLowerCase()] = name.toLowerCase();
     });
-    strHasBeenInitialized = (str[0] >= 'a' && str[0] <= 'z') || (str[0] >= 'A' && str[0] <= 'Z');
+
+    strHasBeenInitialized = (str[0] >= 'a' && str[0] <= 'z') || 
+                            (str[0] >= 'A' && str[0] <= 'Z');
+
     if(strHasBeenInitialized && listItems[str.toLowerCase()] == undefined) {
-        $(".overlay").append("<ul class='ui-autocomplete ui-menu autocomplete-new'><li class='ui-menu-item'><svg class='icon-ic-add-black-36px'><use xlink:href='./img/icons.svg#icon-ic-add-black-36px'></use></svg>"+str+"</li></ul>");
+        $(".autocomplete-section").append(           
+            "<ul class='ui-autocomplete ui-menu autocomplete-new'>" + 
+              "<li class='ui-menu-item'>" +
+                "<svg class='icon-ic-add-black-36px'>" +
+                  "<use xlink:href='./img/icons.svg#icon-ic-add-black-36px'></use>" +
+                "</svg>" + str +
+              "</li>" +
+            "</ul>"
+        );
     }
   });
   
@@ -25,6 +66,13 @@ $( document ).ready(function() {
     $(".autocomplete-new").addClass("hidden");
   });
   
+  changeBgColor = function() {
+    $(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
+  };
+
+  $(".search_input").click(changeBgColor);
+  $(".search_input").keyup(changeBgColor);
+
   $(".search").click(function() {
 	  $(".title").addClass("hidden");
   	$(".search_bar").removeClass("hidden");

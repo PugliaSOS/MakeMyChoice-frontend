@@ -7,9 +7,12 @@
     
   <title>MakeMyChoice</title>
 
-  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' 
+        rel='stylesheet' 
+        type='text/css'>
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" 
+        href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/mycss.css">
 </head>
 <body>
@@ -17,15 +20,22 @@
     <h1 class="title"> MakeMyChoice </h1>
     <div class="search_bar hidden">
         <input type="text" 
-        class="form-control search_input green_white" 
-        placeholder="Search...">
+               class="form-control search_input green_white" 
+               placeholder="Search...">
     </div>
-    <button class="search btn green_white btn-custom pull-right search_button" type="button" >
-      <svg class="icon-search"><use xlink:href="./img/icons.svg#icon-search"></use></svg>
+    <button class="search btn green_white btn-custom pull-right search_button" 
+            type="button" >
+      <svg class="icon-search">
+        <use xlink:href="./img/icons.svg#icon-search"></use>
+      </svg>
     </button>
   </div>
   
   <div class='overlay'>
+    <div class="autocomplete-section">
+    </div>
+    <div class="products-container">
+    </div>
   </div>
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
