@@ -22,8 +22,7 @@
   display: inline-block;
 }
 
-.search_input {
-	font-size: 14px; 
+.search_input { 
 	border: 0;
 	padding: 0;
   
@@ -61,10 +60,11 @@
 
 ul.products-list {
   padding: 0;
-  margin: 8px 8.3px 0px 8.3px;
+  margin: 0px 8.3px 0px 8.3px;
 }
 
-ul.products-list li{
+ul.products-list li {
+  box-sizing: content-box;
   border: 1px #b3b3b3 solid;
   border-radius: 1px;
   margin-bottom: 3px;
@@ -72,9 +72,34 @@ ul.products-list li{
   background-color: #ffffff;
 }
 
-li input[type="checkbox"]{
+
+li input[type="checkbox"] {
   width: 18px; 
-  height: 18px; 
+  height: 18px;
+  margin: 9.6px 7px 7.4px 6.8px;
+  vertical-align: -3px;
+}
+
+
+.filter {
+  height: 35px;
+  margin: 16px 8.3px 8px 8.3px;
+  background-color: #ffffff;
+  border: 1px #b3b3b3 solid;
+  padding: 1px;
+  border-radius: 1px;
+}
+
+.filter input {
+  height: 30px;
+  border: 0;
+  padding: 0;
+  outline: none;
+  margin-left: 30.8px;
+}
+
+.filter input:placeholder-shown {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 body {

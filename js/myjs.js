@@ -30,12 +30,19 @@ $( document ).ready(function() {
       })
       .done(function( msg ) {
         console.log(msg);
+        $(".products-container").append(
+          "<div class='filter'>" +
+            "<input type='text' placeholder='Filter possibility...'>" +
+          "</div>"
+        );
+
         $(".products-container").append("<ul class='products-list'></ul>");
         
         for (var element in msg) {
           $(".products-list").append(
             "<li>"+
-              "<input type='checkbox'>" + msg[element].title + 
+              "<input type='checkbox' id='" +msg[element]._id + "'>" + 
+               msg[element].title + 
             "</li>"
           );            
         }
