@@ -30,7 +30,16 @@ $( document ).ready(function() {
       })
       .done(function( msg ) {
         console.log(msg);
-        //$(".products-container").append(msg);
+        $(".products-container").append("<ul class='products-list'></ul>");
+        
+        for (var element in msg) {
+          $(".products-list").append(
+            "<li>"+
+              "<input type='checkbox'>" + msg[element].title + 
+            "</li>"
+          );            
+        }
+        
       });
   }
 

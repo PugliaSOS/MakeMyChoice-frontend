@@ -59,6 +59,24 @@
 	border-radius: 0px;
 }
 
+ul.products-list {
+  padding: 0;
+  margin: 8px 8.3px 0px 8.3px;
+}
+
+ul.products-list li{
+  border: 1px #b3b3b3 solid;
+  border-radius: 1px;
+  margin-bottom: 3px;
+  height: 35px;
+  background-color: #ffffff;
+}
+
+li input[type="checkbox"]{
+  width: 18px; 
+  height: 18px; 
+}
+
 body {
 	overflow-y: hidden;
 	background-color: #f2f2f2;
@@ -86,7 +104,7 @@ ul.ui-autocomplete.ui-menu li{
   list-style-type: none;
 }
 
-li {
+.ui-autocomplete li {
   height: 35px;
   padding-top: 7px;
   padding-bottom: 11px;
