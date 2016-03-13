@@ -87,7 +87,10 @@ $( document ).ready(function() {
   };
 
   $(".search_input").click(changeBgColor);
-  $(".search_input").keyup(changeBgColor);
+  $(".search_input").keyup(function() {
+    changeBgColor;
+    $( "body" ).css( "background-image" , "url('../img/logo.png')" );
+  });
 
   $(".search").click(function() {
 	  $(".title").addClass("hidden");

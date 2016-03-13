@@ -105,7 +105,6 @@ li input[type="checkbox"] {
 body {
 	overflow-y: hidden;
 	background-color: #f2f2f2;
-  background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
