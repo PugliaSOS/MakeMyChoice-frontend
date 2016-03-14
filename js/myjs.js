@@ -29,10 +29,9 @@ $( document ).ready(function() {
         dataType: "json"
       })
       .done(function( msg ) {
-        console.log(msg);
         $(".products-container").append(
           "<div class='filter'>" +
-            "<input type='text' placeholder='Filter possibility...'>" +
+            "<input type='text' class='filter-input' placeholder='Filter possibility...'>" +
           "</div>"
         );
 
@@ -40,17 +39,36 @@ $( document ).ready(function() {
         
         for (var element in msg) {
           $(".products-list").append(
-            "<li>"+
-              "<input type='checkbox' id='" +msg[element]._id + "'>" + 
-               msg[element].title + 
+            "<li>" +
+              "<input type='checkbox'>" + 
+              "<span class='product-title'>" + msg[element].title + "</span>" + 
             "</li>"
           );            
         }
-        
+
+        prepare();  
       });
   }
 
-  
+  function prepare() {
+    //An event which handles the filter 
+    $(".filter-input").keyup(function() {
+      /*check if the product title of eache li matches with the filter 
+       *content. If a product title doesn't match, the elememt itself will be 
+       *hidden.
+       */
+      $("li span.product-title").each(function() {
+        if(
+            $(this).text().search(
+              //make the research case insensitive
+              new RegExp($(".filter-input").val(), "i")
+            ) === -1
+        ) $(this).parent().addClass("hidden"); 
+        else $(this).parent().removeClass("hidden");
+      });     
+    });
+
+  }
 
   $(".search_input").keyup(function() {
     $(".autocomplete-new").remove();
