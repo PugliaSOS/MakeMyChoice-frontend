@@ -21,14 +21,18 @@ $( document ).ready(function() {
       minLength:1
     }); 
   });
+  
+  var results;
 
   function printProducts(category) {
+    
       $.ajax({
         method: "GET",
         url: "http://localhost:8001/categories/" + category + "/products",
         dataType: "json"
       })
       .done(function( msg ) {
+        results = msg[0];
         $(".products-container").append(
           "<div class='filter'>" +
             "<input type='text' class='filter-input' placeholder='Filter possibility...'>" +
@@ -39,7 +43,7 @@ $( document ).ready(function() {
         
         for (var element in msg) {
           $(".products-list").append(
-            "<li>" +
+            "<li data-id=" + msg[element]._id + ">" +
               "<input type='checkbox'>" + 
               "<span class='product-title'>" + msg[element].title + "</span>" + 
             "</li>"
@@ -53,7 +57,7 @@ $( document ).ready(function() {
   function prepare() {
     //An event which handles the filter 
     $(".filter-input").keyup(function() {
-      /*check if the product title of eache li matches with the filter 
+      /*check if the product title of each li matches with the filter 
        *content. If a product title doesn't match, the elememt itself will be 
        *hidden.
        */
@@ -96,6 +100,16 @@ $( document ).ready(function() {
     }
   });
   
+  var checkedProducts = [];
+
+  $("#btn-2").click(function() {
+    $("li").each(function() {
+      if($(this).children("input").is(':checked')) {
+        checkedProducts.push($(this).attr("data-id"));
+      }
+    });
+  });
+
   $("#ui-id-1").click(function(){
     $(".autocomplete-new").addClass("hidden");
   });
@@ -116,7 +130,8 @@ $( document ).ready(function() {
     $(".search_input").attr("id", "search_input");
     $("#search_input").focus();
   	$(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
-    $("use").attr("xlink:href", "./img/icons.svg#icon-logo-black");
+    $("#btn-1").addClass("hidden");
+    $("#btn-2").removeClass("hidden");
   });
 
 });
