@@ -1,3 +1,9 @@
+/********* GLOBAL VARIABLES ***********/
+var checkedProducts = [];
+var sample;
+var preferences = {};
+
+
 $( document ).ready(function() {
   
   $.ajax({
@@ -22,7 +28,6 @@ $( document ).ready(function() {
     }); 
   });
   
-  var results;
 
   function printProducts(category) {
     
@@ -32,7 +37,7 @@ $( document ).ready(function() {
         dataType: "json"
       })
       .done(function( msg ) {
-        results = msg[0];
+        sample = msg[0].features;
         $(".products-container").append(
           "<div class='filter'>" +
             "<input type='text' class='filter-input' placeholder='Filter possibility...'>" +
@@ -49,7 +54,6 @@ $( document ).ready(function() {
             "</li>"
           );            
         }
-
         prepare();  
       });
   }
@@ -100,23 +104,46 @@ $( document ).ready(function() {
     }
   });
   
-  var checkedProducts = [];
-
   $("#btn-2").click(function() {
+    checkedProducts = [];
     $("li").each(function() {
       if($(this).children("input").is(':checked')) {
         checkedProducts.push($(this).attr("data-id"));
       }
     });
+    $(".products-container").addClass("hidden");
+    $(".search_input").addClass("hidden");
+    $(".search-nav h1").removeClass("hidden").text("Set your preferences");
+    
+    for( field in sample) {      
+      $(".setter").append(
+        field + " <input id='" + field + "' type='range' min=0 max=100><br>"
+      );
+    }
+    $("#btn-2").addClass("hidden");
+    $("#btn-3").removeClass("hidden");
   });
+
+  $("#btn-3").click(function() {
+    
+    /*Some codeee */
+
+    
+  });
+
+
 
   $("#ui-id-1").click(function(){
     $(".autocomplete-new").addClass("hidden");
   });
+
+
   
   changeBgColor = function() {
     $(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
   };
+
+
 
   $(".search_input").click(changeBgColor);
   $(".search_input").keyup(function() {
