@@ -1,0 +1,26 @@
+input[type=range]{
+    -webkit-appearance: none;
+    width: 212px;
+    margin-right: 16px;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #009688;
+    margin-top: -7px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}

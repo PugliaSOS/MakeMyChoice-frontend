@@ -2,6 +2,10 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+button {
+  outline: none;
+}
+
 .btn-custom:hover,
 .btn-custom:focus,
 .btn-custom:active {
@@ -171,4 +175,21 @@ svg.icon-ic-add-black-36px {
   padding: 0px;
   border: 0px;
   height: 34px;
+}
+
+.setter {
+  margin-top: 22px;
+}
+
+.setter div span {
+  margin-left: 33px;
+}
+
+.setter div input {
+  margin-right: 16px;
+}
+
+.setter div .col-xs-8 {
+  padding-top: 10px;
+  margin-bottom: 25px;
 }

@@ -1,9 +1,9 @@
 /********* GLOBAL VARIABLES ***********/
-var checkedProducts = [];
-var sample;
-var preferences = {};
+var checkedProducts = []; //container of checked products
+var sample; //A template of the products od the selected category(features)
+var preferences = {}; //an object with preferences setted
 
-
+/********************* Event Handler *************/
 $( document ).ready(function() {
   
   $.ajax({
@@ -40,7 +40,9 @@ $( document ).ready(function() {
         sample = msg[0].features;
         $(".products-container").append(
           "<div class='filter'>" +
-            "<input type='text' class='filter-input' placeholder='Filter possibility...'>" +
+            "<input type='text'" + 
+                   "class='filter-input'" + 
+                   "placeholder='Filter possibility...'>" +
           "</div>"
         );
 
@@ -96,7 +98,8 @@ $( document ).ready(function() {
             "<ul class='ui-autocomplete ui-menu autocomplete-new'>" + 
               "<li class='ui-menu-item'>" +
                 "<svg class='icon-ic-add-black-36px'>" +
-                  "<use xlink:href='./img/icons.svg#icon-ic-add-black-36px'></use>" +
+                  "<use xlink:href='./img/icons.svg#icon-ic-add-black-36px'>" + 
+                  "</use>" +
                 "</svg>" + str +
               "</li>" +
             "</ul>"
@@ -105,23 +108,35 @@ $( document ).ready(function() {
   });
   
   $("#btn-2").click(function() {
+    /* insert all checked products into checkedProducts */
     checkedProducts = [];
     $("li").each(function() {
       if($(this).children("input").is(':checked')) {
         checkedProducts.push($(this).attr("data-id"));
       }
     });
-    $(".products-container").addClass("hidden");
-    $(".search_input").addClass("hidden");
-    $(".search-nav h1").removeClass("hidden").text("Set your preferences");
     
-    for( field in sample) {      
-      $(".setter").append(
-        field + " <input id='" + field + "' type='range' min=0 max=100><br>"
-      );
+    /*check if user can go to the setter page or not*/
+    if(
+      $(".products-container").text() !== "" 
+      && 
+      checkedProducts.length !== 0
+    ) {
+      $(".products-container").addClass("hidden");
+      $(".search_input").addClass("hidden");
+      $(".search-nav h1").removeClass("hidden").text("Set your preferences");
+      /*print features setters*/
+      for( field in sample) {      
+        $(".setter").append(
+          "<div class='row'>" +
+              "<div class='col-xs-4'><span>" + field + "</span></div>" +
+              "<div class='col-xs-8'><input id='" + field + "' type='range' min=0 max=100></div>" + 
+          "</div>"
+        );
+      }
+      $("#btn-2").addClass("hidden");
+      $("#btn-3").removeClass("hidden");
     }
-    $("#btn-2").addClass("hidden");
-    $("#btn-3").removeClass("hidden");
   });
 
   $("#btn-3").click(function() {
