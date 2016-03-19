@@ -1,4 +1,3 @@
-var _ = require('./lodash');
 /********* GLOBAL VARIABLES ***********/
 var checkedProducts = []; //container of checked products
 var sample; //A template of the products od the selected category(features)
@@ -128,18 +127,30 @@ $( document ).ready(function() {
     ) {
 
       var temp = [];
-      for( element in checkedProducts ) {
-        var value = _.findIndex(sample, function(o) { return o._id == element; });
+      /* add objects of sample with _id equals to checkedProducts into temp */
+      for( var i in checkedProducts ) {
+        var value = _.findIndex(sample, function(o) { return o._id === checkedProducts[i]; });
         if(value !== -1) {
           temp.push(sample[value]);
-        }   
+        } 
       }
-      console.log(temp);
+      checkedProducts = temp;
+
+      /* Store all features about all selected products */
+      var featuresName = []
+      for(var i in checkedProducts) {
+        var features = Object.getOwnPropertyNames(checkedProducts[i].features);
+        for (var j in features) {
+          if(featuresName[features[j]] === undefined) {
+            featuresName[features[j]] = features[j];
+          }
+        }  
+      }
 
       $(".products-container").addClass("hidden");
       $(".search-nav h1").removeClass("hidden").text("Set your preferences");
       /*print features setters*/
-      for( field in sample) {      
+      for( field in featuresName) {      
         $(".setter").append(
           "<div class='row'>" +
               "<div class='col-xs-4'><span>" + field + "</span></div>" +
