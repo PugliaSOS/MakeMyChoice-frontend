@@ -16,9 +16,10 @@ $( document ).ready(function() {
       appendTo: ".autocomplete-section",
       source: msg,
       select: function( event, ui ) {
+        $(".search_input").addClass("hidden");
+        $(".title").removeClass("hidden");
+        $(".title").text(ui.item.value);
         $(".autocomplete-new").remove();
-        $(".search_input").val(ui.item.value);
-        $(".search_input").removeAttr("autofocus");
         $(".overlay").css("background-color", $("body").css("background-color"));
         $(".products-container").html("");
         printProducts(ui.item.value);
@@ -123,7 +124,6 @@ $( document ).ready(function() {
       checkedProducts.length !== 0
     ) {
       $(".products-container").addClass("hidden");
-      $(".search_input").addClass("hidden");
       $(".search-nav h1").removeClass("hidden").text("Set your preferences");
       /*print features setters*/
       for( field in sample) {      
