@@ -1,3 +1,4 @@
+var _ = require('./lodash');
 /********* GLOBAL VARIABLES ***********/
 var checkedProducts = []; //container of checked products
 var sample; //A template of the products od the selected category(features)
@@ -38,7 +39,8 @@ $( document ).ready(function() {
         dataType: "json"
       })
       .done(function( msg ) {
-        sample = msg[0].features;
+        //Save all products into sample
+        sample = msg;
         $(".products-container").append(
           "<div class='filter'>" +
             "<input type='text'" + 
@@ -109,6 +111,7 @@ $( document ).ready(function() {
   });
   
   $("#btn-2").click(function() {
+
     /* insert all checked products into checkedProducts */
     checkedProducts = [];
     $("li").each(function() {
@@ -123,6 +126,16 @@ $( document ).ready(function() {
       && 
       checkedProducts.length !== 0
     ) {
+
+      var temp = [];
+      for( element in checkedProducts ) {
+        var value = _.findIndex(sample, function(o) { return o._id == element; });
+        if(value !== -1) {
+          temp.push(sample[value]);
+        }   
+      }
+      console.log(temp);
+
       $(".products-container").addClass("hidden");
       $(".search-nav h1").removeClass("hidden").text("Set your preferences");
       /*print features setters*/
