@@ -158,12 +158,9 @@ $( document ).ready(function() {
     $(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
   };
 
-
-
   $(".search_input").click(changeBgColor);
   $(".search_input").keyup(function() {
     changeBgColor;
-    $( "body" ).css( "background-image" , "url('../img/logo.png')" );
   });
 
   $(".search").click(function() {
