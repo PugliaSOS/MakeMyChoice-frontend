@@ -2,7 +2,8 @@
 var checkedProducts = []; //container of checked products
 var sample; //A template of the products od the selected category(features)
 var preferences = {}; //an object with preferences setted
-
+var featuresName = []; // all feature names of items of specific category
+var category;
 /********************* Event Handler *************/
 $( document ).ready(function() {
   
@@ -22,7 +23,9 @@ $( document ).ready(function() {
         $(".autocomplete-new").remove();
         $(".overlay").css("background-color", $("body").css("background-color"));
         $(".products-container").html("");
+        $()
         printProducts(ui.item.value);
+        category = ui.item.value;
         return false;
       },
       minLength:1
@@ -137,7 +140,6 @@ $( document ).ready(function() {
       checkedProducts = temp;
 
       /* Store all features about all selected products */
-      var featuresName = []
       for(var i in checkedProducts) {
         var features = Object.getOwnPropertyNames(checkedProducts[i].features);
         for (var j in features) {
@@ -149,7 +151,7 @@ $( document ).ready(function() {
 
       $(".products-container").addClass("hidden");
       $(".search-nav h1").removeClass("hidden").text("Set your preferences");
-      /*print features setters*/
+      /* print features setters */
       for( field in featuresName) {      
         $(".setter").append(
           "<div class='row'>" +
@@ -165,9 +167,17 @@ $( document ).ready(function() {
 
   $("#btn-3").click(function() {
     
-    /*Some codeee */
+    for (var i in featuresName) {
+      preferences[featuresName[i]] = 
+        $("#" + featuresName[i]).val(); 
+    }
+    console.log(category);
+    console.log(preferences);
+    /*
+      CODE TO USE chooseTheBest
+    */
+    //$("#btn-2").addClass("hidden");
 
-    
   });
 
 
@@ -182,7 +192,11 @@ $( document ).ready(function() {
     $(".overlay").css("background-color", "rgba(128, 128, 128, 0.5)");
   };
 
-  $(".search_input").click(changeBgColor);
+  $(".search_input").click(function() {
+    changeBgColor();
+    alert(" 5 ");
+  });
+
   $(".search_input").keyup(function() {
     changeBgColor;
   });
