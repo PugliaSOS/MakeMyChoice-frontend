@@ -144,8 +144,8 @@ $( document ).ready(function() {
       for(var i in checkedProducts) {
         var features = Object.getOwnPropertyNames(checkedProducts[i].features);
         for (var j in features) {
-          if(featuresName[j] === undefined) {
-            featuresName[j] = j;
+          if(featuresName[features[j]] === undefined) {
+            featuresName[features[j]] = features[j];
           }
         }  
       }
