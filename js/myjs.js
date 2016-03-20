@@ -23,7 +23,6 @@ $( document ).ready(function() {
         $(".autocomplete-new").remove();
         $(".overlay").css("background-color", $("body").css("background-color"));
         $(".products-container").html("");
-        $()
         printProducts(ui.item.value);
         category = ui.item.value;
         return false;
@@ -129,22 +128,24 @@ $( document ).ready(function() {
       checkedProducts.length !== 0
     ) {
 
-      var temp = [];
+      var temp = []; 
       /* add objects of sample with _id equals to checkedProducts into temp */
       for( var i in checkedProducts ) {
-        var value = _.findIndex(sample, function(o) { return o._id === checkedProducts[i]; });
+        var value = _.findIndex(sample, function(o) { 
+          return o._id === checkedProducts[i]; 
+        });
         if(value !== -1) {
           temp.push(sample[value]);
         } 
       }
       checkedProducts = temp;
 
-      /* Store all features about all selected products */
+      /* Store all available features about all selected products */
       for(var i in checkedProducts) {
         var features = Object.getOwnPropertyNames(checkedProducts[i].features);
         for (var j in features) {
-          if(featuresName[features[j]] === undefined) {
-            featuresName[features[j]] = features[j];
+          if(featuresName[j] === undefined) {
+            featuresName[j] = j;
           }
         }  
       }
@@ -156,7 +157,9 @@ $( document ).ready(function() {
         $(".setter").append(
           "<div class='row'>" +
               "<div class='col-xs-4'><span>" + field + "</span></div>" +
-              "<div class='col-xs-8'><input id='" + field + "' type='range' min=0 max=100></div>" + 
+              "<div class='col-xs-8'>" + 
+                "<input id='" + field + "' type='range' min=0 max=100>" + 
+              "</div>" + 
           "</div>"
         );
       }
@@ -168,15 +171,13 @@ $( document ).ready(function() {
   $("#btn-3").click(function() {
     
     for (var i in featuresName) {
-      preferences[featuresName[i]] = 
-        $("#" + featuresName[i]).val(); 
+      preferences[i] = $("#" + i).val(); 
     }
-    console.log(category);
+    console.log(checkedProducts);
     console.log(preferences);
     /*
       CODE TO USE chooseTheBest
     */
-    //$("#btn-2").addClass("hidden");
 
   });
 
@@ -194,7 +195,6 @@ $( document ).ready(function() {
 
   $(".search_input").click(function() {
     changeBgColor();
-    alert(" 5 ");
   });
 
   $(".search_input").keyup(function() {
