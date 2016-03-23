@@ -1,13 +1,9 @@
 //produces an ordered list 
-function getList(items) {
-    var list = [];
+function addPriority(items) {
     for(var i in items) {
-        list.push({
-            item : items[i],
-            priority : 0
-        });
+      items[i].priority = 0;
     }
-    return list;
+    return items;
 }
 
 //Find the priority of each interested product
@@ -15,27 +11,41 @@ function findPriority(value, max, min) {
     return ((value - min) * 10 / (max - min));
 }
 
-function chooseTheBest (products, preferences) {
+function chooseTheBest(products, preferences) {
+    
+    /*Assign priority 0 to each product in the list*/
+    products = addPriority(products);
 
-    var list = getList(products);
-
+    /*For each feature(ram, camera, ecc)*/
     for(var feature in preferences) {
-        var temp = {
-            feature: preferences[feature],
-            item: null
-        };
-        for(var i in list) {
-            if(list[i].item.features[feature] >= temp.feature) {
-                temp.feature = list[i].item.features[feature];
-                temp.item = i;
-            }
+        if( feature !== "price") {
+            /*Find the max value of the analyzed feature*/
+            var max = _.maxBy(products, function(o) { 
+                return o.features[feature]; 
+            });
+            max = max.features[feature];
+           
+            /*Find the max value of the analyzed feature*/
+            var min = _.minBy(products, function(o) { 
+                return o.features[feature]; 
+            });
+            min = min.features[feature];
         }
-        if(temp.item != null) {
-            list[temp.item].priority++;
-        }
+        
+        for(var product in products) {
+            if(feature === "price") 
+                products[product].priority += 
+                    preferences[feature] / products[product].features[feature];
+    
+            else
+                products[product].priority += 
+                    preferences[feature] * 
+                    findPriority(
+                        products[product].features[feature], max, min
+                    );
+        }  
     }
-
-    _.sortBy(list, function(o){ return o.priority });
-
-    return list;
+    
+    return _.sortBy(products, function(o) { return o.priority; }).reverse();
 }
+

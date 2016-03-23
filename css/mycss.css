@@ -64,7 +64,7 @@ button {
 
 ul.products-list {
   padding: 0;
-  margin: 0px 8.3px 0px 8.3px;
+  margin: 8px 8.3px 0px 8.3px;
 }
 
 ul.products-list li {
@@ -87,7 +87,7 @@ li input[type="checkbox"] {
 
 .filter {
   height: 35px;
-  margin: 16px 8.3px 8px 8.3px;
+  margin: 16px 8.3px 0px 8.3px;
   background-color: #ffffff;
   border: 1px #b3b3b3 solid;
   padding: 1px;

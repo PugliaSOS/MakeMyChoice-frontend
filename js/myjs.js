@@ -23,7 +23,7 @@ $( document ).ready(function() {
         $(".autocomplete-new").remove();
         $(".overlay").css("background-color", $("body").css("background-color"));
         $(".products-container").html("");
-        printProducts(ui.item.value);
+        printProductsOfTheCategory(ui.item.value);
         category = ui.item.value;
         return false;
       },
@@ -32,7 +32,7 @@ $( document ).ready(function() {
   });
   
 
-  function printProducts(category) {
+  function printProductsOfTheCategory(category) {
     
       $.ajax({
         method: "GET",
@@ -49,21 +49,27 @@ $( document ).ready(function() {
                    "placeholder='Filter possibility...'>" +
           "</div>"
         );
-
-        $(".products-container").append("<ul class='products-list'></ul>");
-        
-        for (var element in msg) {
-          $(".products-list").append(
-            "<li data-id=" + msg[element]._id + ">" +
-              "<input type='checkbox'>" + 
-              "<span class='product-title'>" + msg[element].title + "</span>" + 
-            "</li>"
-          );            
-        }
+        printProductsList(msg, true);        
         prepare();  
       });
   }
 
+  function printProductsList(list, checkbox ) {
+    $(".products-container").append("<ul class='products-list'></ul>"); 
+    for (var element in list) {
+      $(".products-list").append(
+        "<li data-id=" + list[element]._id + ">" +
+          printCheckbox(checkbox) + 
+          "<span class='product-title'>" + list[element].title + "</span>" + 
+        "</li>"
+      );    
+    }
+  }
+
+  function printCheckbox(checkbox) {
+    if(checkbox) return "<input type='checkbox'>"
+    return "";
+  }
   function prepare() {
     //An event which handles the filter 
     $(".filter-input").keyup(function() {
@@ -173,12 +179,15 @@ $( document ).ready(function() {
     for (var i in featuresName) {
       preferences[i] = $("#" + i).val(); 
     }
-    console.log(checkedProducts);
-    console.log(preferences);
-    /*
-      CODE TO USE chooseTheBest
-    */
 
+    /*
+     * USE chooseTheBest()
+     */
+    result = chooseTheBest(checkedProducts, preferences);
+    $(".setter").addClass("hidden");
+    $(".products-container").removeClass("hidden");
+    $(".products-container").html("");
+    printProductsList(result, false); 
   });
 
 
